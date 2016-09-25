@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+	<title>Atualizações Web</title>
+	<link>http://www.sh3.com.br</link>
+	<description>Descrições de novas atualizações</description>
+	<language>pt</language>
+	<copyright>Sistemas para gestão pública</copyright>
+	<pubdate>Sun, 25 Sep 2016 17:24:16 -0300</pubdate>
+<item>
+	<title>RSSFeed</title>
+	<description>This is a description</description>
+	<link>http://www.vogella.com/tutorials/RSSFeed/article.html</link>
+	<author>nonsense@somewhere.de (Lars Vogel)</author>
+	<guid>http://www.vogella.com/tutorials/RSSFeed/article.html</guid>
+
+</item>
+
+</channel>
+</rss>

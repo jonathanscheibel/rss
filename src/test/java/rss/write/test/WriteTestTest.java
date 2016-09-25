@@ -9,7 +9,6 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,10 +18,10 @@ import rss.write.RSSFeedWriter;
 
 public class WriteTestTest {
 
-	final String ARQUIVO = "src/test/java/rss/write/test/articles.rss";
+	final String NOME_FEED = "sh3Atualizacoes.rss";
+	final String ARQUIVO = "src/main/webapp/resources/" + NOME_FEED;
 
 	@Before
-	@After
 	public void deletarFeed(){
 		new File(ARQUIVO).delete();
 	}
