@@ -1,17 +1,35 @@
 package rss.write.test;
 
+import static org.junit.Assert.fail;
+
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
 import rss.model.Feed;
 import rss.model.FeedMessage;
 import rss.write.RSSFeedWriter;
 
-public class WriteTest {
-	public static void main(String[] args) {
+public class WriteTestTest {
+
+	final String ARQUIVO = "src/test/java/rss/write/test/articles.rss";
+
+	@Before
+	@After
+	public void deletarFeed(){
+		new File(ARQUIVO).delete();
+	}
+	
+	@Test
+	public void testCreateFeed() {
+		
 		// create the rss feed
 		String copyright = "Sistemas para gestão pública";
 		String title = "Atualizações Web";
@@ -32,22 +50,16 @@ public class WriteTest {
 		feed.setGuid("http://www.vogella.com/tutorials/RSSFeed/article.html");
 		feed.setLink("http://www.vogella.com/tutorials/RSSFeed/article.html");
 		rssFeeder.getMessages().add(feed);
-		
-		FeedMessage feed2 = new FeedMessage();
-		feed2.setTitle("Como aprimorar os estudos");
-		feed2.setDescription("Aqui a descrição de como aprimorar seus estudos!");
-		feed2.setAuthor("jonathanscmorais@gmail.com (Jonathan Scheibel)");
-		feed2.setGuid("http://www.sh3.com.br");
-		feed2.setLink("http://www.sh3.com.br");
-		rssFeeder.getMessages().add(feed2);
-		
+
 		// now write the file
-		RSSFeedWriter writer = new RSSFeedWriter(rssFeeder, "/home/jonathan/articles.rss");		
+		RSSFeedWriter writer = new RSSFeedWriter(rssFeeder, ARQUIVO);
 		try {
-			writer.write();
-			System.out.println("?");
+			writer.write();			
 		} catch (Exception e) {
+			fail("Erro ao escrever o feed!");
 			e.printStackTrace();
 		}
+
 	}
+
 }

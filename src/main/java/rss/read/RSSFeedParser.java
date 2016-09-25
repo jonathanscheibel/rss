@@ -54,7 +54,8 @@ public class RSSFeedParser {
 			// First create a new XMLInputFactory
 			XMLInputFactory inputFactory = XMLInputFactory.newInstance();
 			// Setup a new eventReader
-			InputStream in = readFile();
+
+			InputStream in = read();
 			XMLEventReader eventReader = inputFactory.createXMLEventReader(in);
 			// read the XML document
 			while (eventReader.hasNext()) {
@@ -122,15 +123,6 @@ public class RSSFeedParser {
 		}
 		return result;
 	}
-
-	private FileInputStream readFile(){
-		try {
-			return (FileInputStream) url.openStream();
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
-	}
-	
 
 	private InputStream read() {
 		try {
