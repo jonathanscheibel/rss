@@ -1,6 +1,5 @@
 package rss.read;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -12,8 +11,8 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.Characters;
 import javax.xml.stream.events.XMLEvent;
 
-import rss.model.Feed;
-import rss.model.FeedMessage;
+import rss.model.feed.Feed;
+import rss.model.feedMessage.FeedMessage;
 
 public class RSSFeedParser {
 	static final String TITLE = "title";

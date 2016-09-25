@@ -3,17 +3,18 @@ package rss.write.test;
 import static org.junit.Assert.fail;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.Locale;
+import java.io.FileNotFoundException;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import rss.model.Feed;
-import rss.model.FeedMessage;
+import rss.model.feed.Feed;
+import rss.model.feed.FeedFactory;
+import rss.model.feedMessage.FeedMessage;
+import rss.model.feedMessage.FeedMessageFactory;
+import rss.model.feedMessage.model.Autor;
+import rss.model.feedMessage.model.Descricao;
+import rss.model.feedMessage.model.Titulo;
 import rss.write.RSSFeedWriter;
 
 public class WriteTestTest {
@@ -22,43 +23,39 @@ public class WriteTestTest {
 	final String ARQUIVO = "src/main/webapp/resources/" + NOME_FEED;
 
 	@Before
-	public void deletarFeed(){
+	public void deletarFeed() {
 		new File(ARQUIVO).delete();
 	}
-	
+
 	@Test
 	public void testCreateFeed() {
+
+		Feed rssFeeder = new FeedFactory().getFeedFactory();
+
 		
-		// create the rss feed
-		String copyright = "Sistemas para gestão pública";
-		String title = "Atualizações Web";
-		String description = "Descrições de novas atualizações";
-		String language = "pt";
-		String link = "http://www.sh3.com.br";
-		Calendar cal = new GregorianCalendar();
-		Date creationDate = cal.getTime();
-		SimpleDateFormat date_format = new SimpleDateFormat("EEE', 'dd' 'MMM' 'yyyy' 'HH:mm:ss' 'Z", Locale.US);
-		String pubdate = date_format.format(creationDate);
-		Feed rssFeeder = new Feed(title, link, description, language, copyright, pubdate);
+		
 
-		// now add one example entry
-		FeedMessage feed = new FeedMessage();
-		feed.setTitle("RSSFeed");
-		feed.setDescription("This is a description");
-		feed.setAuthor("nonsense@somewhere.de (Lars Vogel)");
-		feed.setGuid("http://www.vogella.com/tutorials/RSSFeed/article.html");
-		feed.setLink("http://www.vogella.com/tutorials/RSSFeed/article.html");
-		rssFeeder.getMessages().add(feed);
+		FeedMessage newFeed = new FeedMessageFactory().getFeedMessage(new Titulo("Titulo1"),
+				new Autor("jonathansmorais@gmail.com1"), new Descricao("Esta é a descrição da Atualização1"));
+		rssFeeder.getMessages().add(newFeed);
 
-		// now write the file
+
 		RSSFeedWriter writer = new RSSFeedWriter(rssFeeder, ARQUIVO);
 		try {
-			writer.write();			
+			writer.write();
 		} catch (Exception e) {
 			fail("Erro ao escrever o feed!");
 			e.printStackTrace();
 		}
+	}
 
+	@Test(expected = FileNotFoundException.class)
+	public void testCreateFeedExceptiona() throws Exception {
+		Feed rssFeeder = new FeedFactory().getFeedFactory();
+		FeedMessage newFeed = new FeedMessageFactory().getFeedMessage();
+		rssFeeder.getMessages().add(newFeed);
+		RSSFeedWriter writer = new RSSFeedWriter(rssFeeder, "");
+		writer.write();
 	}
 
 }
