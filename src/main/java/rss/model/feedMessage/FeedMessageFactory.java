@@ -1,8 +1,6 @@
 package rss.model.feedMessage;
 
-import rss.model.feedMessage.model.Autor;
-import rss.model.feedMessage.model.Descricao;
-import rss.model.feedMessage.model.Titulo;
+import rss.model.messageAll.InterfaceMessageAll;
 
 public class FeedMessageFactory {
 
@@ -10,16 +8,17 @@ public class FeedMessageFactory {
 	
 	public FeedMessage getFeedMessage() {					
 		return new FeedMessage();
-	}
-		
-	public FeedMessage getFeedMessage(Titulo titulo, Autor autor, Descricao descricao) {					
+	}	
+	
+	public FeedMessage getFeedMessage(InterfaceMessageAll messageAll) {					
 		FeedMessage feed = new FeedMessage();
-		feed.setTitle(titulo.toString()); 			//"RSSFeed"
-		feed.setDescription(descricao.toString()); 	//"This is a description"
-		feed.setAuthor(autor.toString()); 			//"nonsense@somewhere.de (Lars Vogel)"
+		feed.setTitle(messageAll.getTitulo().getTextMessage()); 			//"RSSFeed
+		feed.setAuthor(messageAll.getAutor().getTextMessage()); 			//"nonsense@somewhere.de (Lars Vogel)"
+		feed.setDescription(messageAll.getDescricao().getTextMessage()); 	//"This is a description"
 		feed.setGuid(URL);
 		feed.setLink(URL);
 		return feed;
 	}
+	
 }
 

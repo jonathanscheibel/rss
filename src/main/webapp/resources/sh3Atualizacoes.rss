@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+	<title>Atualizações Web</title>
+	<link>http://www.sh3.com.br</link>
+	<description>Descrições de novas atualizações</description>
+	<language>pt</language>
+	<copyright>Sistemas para gestão pública</copyright>
+	<pubdate>Sun, 25 Sep 2016 19:39:29 -0300</pubdate>
+<item>
+	<title>Como criar RSS em java2</title>
+	<description>Esta é a minha descrição!2</description>
+	<link>http://www.sh3.com.br/atualizacao.html</link>
+	<author>jonathansmorais@gmail.com2</author>
+	<guid>http://www.sh3.com.br/atualizacao.html</guid>
+
+</item>
+
+</channel>
+</rss>

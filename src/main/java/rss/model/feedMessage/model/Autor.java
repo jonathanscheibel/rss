@@ -1,14 +1,29 @@
 package rss.model.feedMessage.model;
 
-public class Autor {
+import rss.model.message.InterfaceMessage;
+
+public class Autor implements InterfaceMessage{
 
 	private String nomeAutor;
 	
 	public Autor(String nomeAutor){
-		this.nomeAutor = nomeAutor;		
+		setTextMessage(nomeAutor);		
 	}
 	
 	public String toString(){
 		return nomeAutor;
 	}
+
+	@Override
+	public void setTextMessage(String text) {
+		this.nomeAutor = text;
+		
+	}
+
+	@Override
+	public String getTextMessage() {
+		return nomeAutor;
+	}
+	
+	
 }
