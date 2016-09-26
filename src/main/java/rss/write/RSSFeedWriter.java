@@ -12,8 +12,8 @@ import javax.xml.stream.events.StartDocument;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
-import rss.model.Feed;
-import rss.model.FeedMessage;
+import rss.model.feed.Feed;
+import rss.model.feedMessage.FeedMessage;
 
 public class RSSFeedWriter {
 	private String outputFile;

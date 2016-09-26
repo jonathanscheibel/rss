@@ -1,4 +1,4 @@
-package rss.model;
+package rss.model.feedMessage;
 
 public class FeedMessage {
 

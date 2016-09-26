@@ -1,7 +1,9 @@
-package rss.model;
+package rss.model.feed;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import rss.model.feedMessage.FeedMessage;
 
 public class Feed {
 	final String title;
