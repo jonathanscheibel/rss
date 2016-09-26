@@ -6,13 +6,13 @@
 	<description>Descrições de novas atualizações</description>
 	<language>pt</language>
 	<copyright>Sistemas para gestão pública</copyright>
-	<pubdate>Sun, 25 Sep 2016 19:39:29 -0300</pubdate>
+	<pubdate>Sun, 25 Sep 2016 20:07:46 -0300</pubdate>
 <item>
-	<title>Como criar RSS em java2</title>
-	<description>Esta é a minha descrição!2</description>
-	<link>http://www.sh3.com.br/atualizacao.html</link>
-	<author>jonathansmorais@gmail.com2</author>
-	<guid>http://www.sh3.com.br/atualizacao.html</guid>
+	<title>Como criar RSS em java 2</title>
+	<description>Esta é a minha descrição! 2</description>
+	<link>http://www.sh3.com.br/2</link>
+	<author>jonathansmorais@gmail.com (Jonathan Scheibel)</author>
+	<guid>http://www.sh3.com.br/2</guid>
 
 </item>
 
